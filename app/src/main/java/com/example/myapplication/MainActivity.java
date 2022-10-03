@@ -1,10 +1,10 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+<<<<<<< Updated upstream
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,6 +18,18 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView userListRecyclerView;
     private ArrayList<User> userArrayList = new ArrayList<>();
     private UserAdapter userAdapter;
+=======
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
+
+public class MainActivity extends AppCompatActivity {
+    private String[] listOfTitles = new String[]{"Favorites", "Playlist", "Recent"};
+    private ViewPager2 viewPager;
+    private TabLayout tabLayout;
+
+>>>>>>> Stashed changes
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         setData();
     }
 
+<<<<<<< Updated upstream
     private void initView(){
         userListRecyclerView = findViewById(R.id.userListRecyclerview);
         userListRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -44,5 +57,21 @@ public class MainActivity extends AppCompatActivity {
 
         userAdapter = new UserAdapter(this, userArrayList);
         userListRecyclerView.setAdapter(userAdapter);
+=======
+    private void initViews() {
+        viewPager = findViewById(R.id.view_pager);
+        tabLayout = findViewById(R.id.tab_layout);
+    }
+
+    private void initListeners() {
+        MainViewPagerAdapter pagerAdapter = new MainViewPagerAdapter(this);
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setCurrentItem(0);
+        addTabLayoutMediator();
+    }
+
+    private void addTabLayoutMediator() {
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText("Tab: " + position)).attach();
+>>>>>>> Stashed changes
     }
 }

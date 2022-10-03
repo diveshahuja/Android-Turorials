@@ -8,6 +8,7 @@
     android:layout_gravity="center"
     android:padding="10dp"
     tools:context=".MainActivity">
+<<<<<<< Updated upstream
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -15,4 +16,36 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+=======
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:id="@+id/tab_layout"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:background="@color/teal_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicator="@drawable/google_tab_indicator"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorHeight="5dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/material_dynamic_primary0" />
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        android:layout_height="match_parent">
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.card.MaterialCardView>
+>>>>>>> Stashed changes
 </androidx.appcompat.widget.LinearLayoutCompat>
