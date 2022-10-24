@@ -5,16 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements UserViewInterface {
     private RecyclerView userListRecyclerView;
     private ArrayList<User> userArrayList = new ArrayList<>();
     private UserAdapter userAdapter;
@@ -42,7 +37,15 @@ public class MainActivity extends AppCompatActivity {
         userArrayList.add(new User("Divesh Ahuja", true));
         userArrayList.add(new User("Divesh Ahuja", true));
 
-        userAdapter = new UserAdapter(this, userArrayList);
+        userAdapter = new UserAdapter(this, userArrayList, this);
         userListRecyclerView.setAdapter(userAdapter);
     }
+
+    @Override
+    public void onNameClicked(String name) {
+        Toast.makeText(this, "Now in activity: " + name, Toast.LENGTH_SHORT).show();
+    }
+
+
+
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +15,11 @@ import java.util.ArrayList;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
     private Context context;
     private ArrayList<User> userArrayList;
-    public UserAdapter(Context context, ArrayList<User> userArrayList){
+    private UserViewInterface userViewInterface;
+    public UserAdapter(Context context, ArrayList<User> userArrayList, UserViewInterface userViewInterface){
         this.context = context;
         this.userArrayList = userArrayList;
+        this.userViewInterface = userViewInterface;
     }
 
 
@@ -53,6 +56,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             }else{
                 isOnline.setText("Ofline");
             }
+            name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    userViewInterface.onNameClicked(user.name);
+                }
+            });
         }
     }
 }
